@@ -21,9 +21,11 @@ function exibeNomeENota (aluno) {
         let mediaAluno = lista[1][indice];
         console.log(`${aluno} tem a média ${mediaAluno}`);
     } else {
-        console.log('Estudante não existe na lista!');
+        console.log(`Estudante ${aluno} não existe na lista!`);
     }
 }
+
+
 
 function estudanteComMaiorMedia() {
     let maiorMedia = 0; //Inicializa a maior média como 0
@@ -42,13 +44,27 @@ function estudanteComMaiorMedia() {
 }
 
 let estudanteComMaiorNota = estudanteComMaiorMedia();
-console.log(`O estudante com a maior média é ${estudanteComMaiorNota}`);
 
+
+function filtrarEstudantePormedia(valor) {
+    let estudantesFiltrados = [];
+
+    for (let i = 0; i < lista[1].length; i++) {
+        if (lista[1][i] > valor) {
+            estudantesFiltrados.push(lista[0][i]);
+        }
+    }
+    
+    return estudantesFiltrados;
+}
+
+let estudantesAcimaDaMedia = filtrarEstudantePormedia(7);
 
 
 exibeNomeENota('Juliana');
-exibeNomeENota('Gabriel');
+exibeNomeENota('Lucas');
 
 
-console.log(alunos);
-console.log(medias);
+
+console.log(`O estudante com a maior média é ${estudanteComMaiorNota}`);
+console.log(`Estudantes com a média acima de 7: ${estudantesAcimaDaMedia}`);
