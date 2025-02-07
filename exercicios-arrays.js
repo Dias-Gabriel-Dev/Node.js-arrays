@@ -4,7 +4,6 @@ let medias = [10, 8, 7.5, 9];
 let lista= [alunos, medias];
 
 function adicionarEstudante(nome, media) {
-  console.log('Função adicionarestudante foi chamada.');
   if (lista[0].includes(nome)) {
       console.log(`${nome} já está na lista!`);
   } else {
@@ -26,10 +25,30 @@ function exibeNomeENota (aluno) {
     }
 }
 
+function estudanteComMaiorMedia() {
+    let maiorMedia = 0; //Inicializa a maior média como 0
+    let nomeEstudante = ''; //Inicializa o nome do estudante com uma string vazia
+
+    for (let i =0; i< lista[1].length; i++) {
+    // Verifica se a média atual é maior que a maior média encontrada
+        if (lista[1][i] > maiorMedia) {
+            maiorMedia = lista[1][i];
+            nomeEstudante = lista[0][i];
+        }
+
+    }
+
+    return nomeEstudante;
+}
+
+let estudanteComMaiorNota = estudanteComMaiorMedia();
+console.log(`O estudante com a maior média é ${estudanteComMaiorNota}`);
+
 
 
 exibeNomeENota('Juliana');
 exibeNomeENota('Gabriel');
+
 
 console.log(alunos);
 console.log(medias);
